@@ -58,7 +58,7 @@ func (s Sieve) ChanDescending(n int) chan int {
 	return out
 }
 
-func (s *Sieve) print() {
+func (s *Sieve) Print() {
 	for i, mask := range s.table {
 		if i > 1 && mask == 0 {
 			fmt.Printf("%d ", i)
@@ -67,7 +67,7 @@ func (s *Sieve) print() {
 	fmt.Printf("\n")
 }
 
-func (s *Sieve) count() (tally int) {
+func (s *Sieve) Count() (tally int) {
 	for i, mask := range s.table {
 		if i > 1 && mask == 0 {
 			tally++
@@ -76,7 +76,7 @@ func (s *Sieve) count() (tally int) {
 	return
 }
 
-func (s *Sieve) test(n int) (isPrime bool) {
+func (s *Sieve) Test(n int) (isPrime bool) {
 	if n > 1 && n < len(s.table) && s.table[n] == 0 {
 		isPrime = true
 	}
